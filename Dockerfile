@@ -1,4 +1,4 @@
-FROM r-base:3.4.4
+FROM r-base:3.6.3
 MAINTAINER jselvi@pentester.es
 
 RUN apt update; apt -y install python curl
