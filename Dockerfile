@@ -1,8 +1,8 @@
-FROM r-base:3.4.4
+FROM r-base:4.0.5
 MAINTAINER jselvi@pentester.es
 
-RUN apt update; apt -y install python python-pip
-RUN python -m pip install ngram statistics
+RUN apt update; apt -y install python3 python3-pip #libcurl4-openssl-dev libssl-dev libxml2-dev
+RUN python3 -m pip install ngram statistics
 
 RUN mkdir /dga
 

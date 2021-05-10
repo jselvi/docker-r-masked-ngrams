@@ -1,4 +1,4 @@
-#!/usr/bin/env python -u
+#!/usr/bin/env python3 -u
 
 import signal
 import sys
@@ -11,11 +11,11 @@ if len(sys.argv) == 3:
   tag = sys.argv[1]
   domain_file = sys.argv[2]
 else:
-  print 'Invalid params!'
+  print('Invalid params!')
   sys.exit(0)
 
 def signal_handler(signal, frame):
-  print 'Exiting!'
+  print('Exiting!')
   sys.exit(0)
 signal.signal(signal.SIGINT, signal_handler)
 
@@ -84,5 +84,5 @@ with open(domain_file) as f:
     feature.extend(ngram_dict.values())
 
     csv_features = ",".join(str(a) for a in feature)
-    print csv_features
+    print(csv_features)
 
