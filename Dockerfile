@@ -1,4 +1,4 @@
-FROM r-base
+FROM r-base:3.4.4
 MAINTAINER jselvi@pentester.es
 
 RUN apt update; apt -y install python python-pip
