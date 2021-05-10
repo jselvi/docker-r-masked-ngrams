@@ -21,11 +21,6 @@ for (j in 4:m)
 
 # Split in usable data and additional information
 selected_rows = 3:ncol(clean)
-#selected_rows1 <- c('V3', 'V21', 'V16','V20','V19', 'V5', 'V6'),
-#selected_rows2 <- c('V3', 'V24', 'V16','V20','V23', 'V6', 'V5'),
-#selected_rows3 <- c('V3', 'V84', 'V16','V20','V27', 'V6', 'V5'),
-#selected_rows4 <- c('V3', 'V16', 'V184','V20','V19', 'V89', 'V5'),
-#selected_rows <- selected_rows3
 
 data_clean_full <- clean[,selected_rows]
 data_dga_full   <- dga[,selected_rows]
@@ -66,9 +61,15 @@ rfPred <- predict(rfFit, testSplit)
 })
 print("Done")
 
+# Predict with the voting information and export it into a CSV file
+#x <- predict(rfFit$finalModel, testSplit, type="vote", norm.votes=FALSE, predict.all=TRUE)
+#write.table(x["individual"], file="/tmp/votes.csv", sep=",")
+#best_tree <- getTree(rfFit$finalModel, 63, labelVar=TRUE)
+#best_tree
+
 print("Results...")
 importance = varImp(rfFit)
 importance
 
 # Confusion matrix
-confusionMatrix(rfPred, testSplit[,1])
+confusionMatrix(table(rfPred, testSplit[,1]))
