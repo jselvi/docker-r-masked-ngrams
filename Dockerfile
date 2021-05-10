@@ -1,7 +1,8 @@
 FROM r-base:3.4.4
 MAINTAINER jselvi@pentester.es
 
-RUN apt update; apt -y install python python-pip
+RUN apt update; apt -y install python curl
+RUN curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py ; python get-pip.py ; rm -f get-pip.py
 RUN python -m pip install ngram statistics
 
 RUN mkdir /dga
